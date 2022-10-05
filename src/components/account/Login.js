@@ -1,26 +1,29 @@
 import React, { useState, useEffect, useContext } from "react";
 
 import { TextField, Box, Button, Typography, styled } from "@mui/material";
-
+import blog from "../../logo/blog.jpg";
 import { API } from "../../service/api";
 import { DataContext } from "../../context/DataProvider";
 import { useNavigate } from "react-router-dom";
 
 const Component = styled(Box)`
+background-color: #fef8dd;
   width: 400px;
   margin: auto;
   box-shadow: 5px 2px 5px 2px rgb(0 0 0/ 0.6);
+  border-radius: 10px;
 `;
 
 const Image = styled("img")({
-  width: 100,
+  width: 160,
+  height: 80, 
   display: "flex",
   margin: "auto",
-  padding: "50px 0 0",
+  padding: "50px 0 0 0",
 });
 
 const Wrapper = styled(Box)`
-  padding: 25px 35px;
+  padding: 25px 25px 25px 25px;
   display: flex;
   flex: 1;
   overflow: auto;
@@ -28,7 +31,7 @@ const Wrapper = styled(Box)`
   & > div,
   & > button,
   & > p {
-    margin-top: 20px;
+    margin-top: 14px;
   }
 `;
 
@@ -38,6 +41,7 @@ const LoginButton = styled(Button)`
   color: #fff;
   height: 48px;
   border-radius: 2px;
+  align-items: center;
 `;
 
 const SignupButton = styled(Button)`
@@ -82,8 +86,7 @@ const Login = ({ isUserAuthenticated }) => {
   const { setAccount } = useContext(DataContext);
   const navigate = useNavigate();
 
-  const imageURL =
-    "https://www.sesta.it/wp-content/uploads/2021/03/logo-blog-sesta-trasparente.png";
+  const imageURL = "https://upload.wikimedia.org/wikipedia/en/0/02/DotBlog_domain_logo.png";
 
   // useEffect(() => {
   //     showError(false);
